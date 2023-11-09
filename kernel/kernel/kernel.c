@@ -28,6 +28,10 @@ void kernel_main(void) {
     printf("Total memory allocated: %d bytes\n", allocation_count * allocation_size);
     printf("Out of memory! Crash imminent!\n");
     printf("Accessing allocated memory...\n");
-    *(int*)allocated_memory = 42;
+
+    if (allocated_memory != NULL) {
+        *(int*)allocated_memory = 42; }
+
+free(allocated_memory);
     while (1) {
         kbd(); } }
