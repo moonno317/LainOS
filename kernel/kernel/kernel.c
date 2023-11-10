@@ -8,7 +8,7 @@
 #include <stdarg.h>
 #include "GDTandIDT.h"
 #include "mm.h"
-
+#include "schedule.h"
 
 void kernel_main(void) {
     init_gdt();
@@ -25,13 +25,10 @@ void kernel_main(void) {
         allocation_count++;
         allocation_size *= 2; }
 
-    printf("Total memory allocated: %d bytes\n", allocation_count * allocation_size);
-    printf("Out of memory! Crash imminent!\n");
-    printf("Accessing allocated memory...\n");
-
     if (allocated_memory != NULL) {
         *(int*)allocated_memory = 42; }
 
-free(allocated_memory);
+   	free(allocated_memory);
     while (1) {
+	schedule();
         kbd(); } }

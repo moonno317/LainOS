@@ -8,4 +8,4 @@ kernel/kernel.o: kernel/kernel.c \
  /home/vers/LainOS/sysroot/usr/include/sys/cdefs.h \
  /home/vers/LainOS/sysroot/usr/include/string.h \
  /home/vers/opt/cross/lib/gcc/i686-elf/12.2.0/include/stdarg.h \
- kernel/GDTandIDT.h kernel/mm.h
+ kernel/GDTandIDT.h kernel/mm.h kernel/schedule.h
